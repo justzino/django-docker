@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.prod
-    command: gunicorn django_docker.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn django_docker.wsgi:application --bind 0.0.0.0:8002
     environment:
       DJANGO_SETTINGS_MODULE: django_docker.settings.prod
     env_file:
@@ -15,7 +15,7 @@ services:
       - static:/home/app/web/static
       - media:/home/app/web/media
     expose:
-      - 8000
+      - 8002
     entrypoint:
       - sh
       - config/docker/entrypoint.prod.sh
@@ -27,7 +27,7 @@ services:
       - static:/home/app/web/static
       - media:/home/app/web/media
     ports:
-      - "80:80"
+      - "81:81"
     depends_on:
       - web
 
