@@ -27,7 +27,7 @@ services:
       - static:/home/app/web/static
       - media:/home/app/web/media
     ports:
-      - "81:81"
+      - "82:82"
     depends_on:
       - web
 
